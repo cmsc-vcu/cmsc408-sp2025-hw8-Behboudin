@@ -4,7 +4,7 @@ This Homework focuses on writing and executing SQL queries to analyze data on co
 
 ---
 
-## 📚 Table of Contents
+## Table of Contents
 
 1. [Project Description](#project-description)  
 2. [What to Learn](#what-to-learn)

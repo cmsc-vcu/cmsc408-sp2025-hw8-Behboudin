@@ -353,12 +353,11 @@ order by
 run_sql_and_return_html(cnx, """
 SELECT
   `Region`,
-  COUNT(CASE WHEN `Income Group` = 'High income' THEN 1 END) AS "High income",
-  COUNT(CASE WHEN `Income Group` = 'Upper middle income' THEN 1 END) AS "Upper middle income",
-  COUNT(CASE WHEN `Income Group` = 'Lower middle income' THEN 1 END) AS "Lower middle income",
-  COUNT(CASE WHEN `Income Group` = 'Low income' THEN 1 END) AS "Low income",
-  COUNT(CASE WHEN `Income Group` IS NULL THEN 1 END) AS "Other",
-  COUNT(*) AS "Row Total"
+  COUNT(CASE WHEN `Income Group` = 'High income' THEN 1.0 END) * 1.0 AS "High income",
+  COUNT(CASE WHEN `Income Group` = 'Upper middle income' THEN 1.0 END) * 1.0 AS "Upper middle income",
+  COUNT(CASE WHEN `Income Group` = 'Lower middle income' THEN 1.0 END) * 1.0 AS "Lower middle income",
+  COUNT(CASE WHEN `Income Group` = 'Low income' THEN 1.0 END) * 1.0 AS "Low income",
+  COUNT(CASE WHEN `Income Group` IS NOT NULL THEN 1.0 END) * 1.0 AS "Row Total"
 FROM
   wdi_country
 GROUP BY
